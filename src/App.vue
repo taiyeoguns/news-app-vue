@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="bg-grey-lighter">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
@@ -7,6 +7,9 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+
+//tailwind
+import '@/assets/css/main.css'
 
 export default {
   name: 'app',
