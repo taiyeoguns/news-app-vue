@@ -2,11 +2,7 @@
 	<div class="w-25r p-3 m-4 border-grey-light border-2 rounded-lg bg-white shadow">
 		<h2 class="uppercase text-base text-center tracking-wide border-b-2 pb-2 border-grey-light">{{ this.source.name }}</h2>
 
-		<div v-for="item in items" :key="item.id">
-
-			<news-item :item="item" />
-
-		</div>
+		<news-item v-for="item in items" :key="item.id" :item="item" />
 
 	</div>
 </template>
@@ -20,34 +16,34 @@ import _ from 'lodash'
 
 export default {
 
-  name: 'news-item-container',
+	name: 'news-item-container',
 
-  components: {
+	components: {
 
-	NewsItem
+		NewsItem
 
-  },
+	},
 
-  props: ['source'],
+	props: ['source'],
 
-  data () {
-    return {
+	data () {
+		return {
 
-    	'items': []
+			'items': []
 
-    }
-  },
+		}
+	},
 
-  created() {
+	created() {
 
-  	this.$axios.get('https://newsapi.org/v2/top-headlines?sources='+ this.source.id +'&apiKey='+ process.env.VUE_APP_NEWS_API_KEY)
-    .then(response => {
+		this.$axios.get('https://newsapi.org/v2/top-headlines?sources='+ this.source.id +'&apiKey='+ process.env.VUE_APP_NEWS_API_KEY)
+		.then(response => {
 
-    	this.items = _.sampleSize(response.data.articles, 5)
+			this.items = _.sampleSize(response.data.articles, 5)
 
-    })
+		})
 
-  }
+	}
 
 }
 </script>

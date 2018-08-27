@@ -4,12 +4,9 @@
     <h1 class="text-3xl text-center p-6 tracking-tight">TODAY'S NEWS</h1>
 
     <div class="flex flex-wrap justify-between mx-auto items-baseline ml-8 mr-8">
-
-      <div v-for="source in sources" :key="source.id">
         
-        <news-item-container :source="source" />
+      <news-item-container v-for="source in sources" :key="source.id" :source="source" />
 
-      </div>
     </div>
     
   </div>
