@@ -1,7 +1,7 @@
 <template>
 	<div class="w-full rounded-lg h-48 border border-grey-light mt-6 flex">
 		
-		<div class="w-1/4 h-48 overflow-hidden bg-cover rounded-l-lg" :style="'background-image: url('+ item.urlToImage +')'">
+		<div class="w-1/4 h-48 overflow-hidden bg-cover rounded-l-lg -my-px border-r-4 border-blue-dark" :style="'background-image: url('+ item.urlToImage +')'">
 		</div>
 	
 		<div class="w-3/4 pl-2 pr-2">
