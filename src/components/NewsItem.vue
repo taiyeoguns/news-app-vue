@@ -6,7 +6,7 @@
 	
 		<div class="w-3/4 pl-2 pr-2">
 
-			<div class="text-black font-bold text-l mb-4 mt-2"><a class="no-underline text-black hover:underline" :href="item.url" target="_blank">{{ item.title | truncate_text(55) }}</a></div>
+			<div class="text-black font-bold text-l mb-4 mt-2"><a class="no-underline text-black hover:underline" :href="item.url" @click="mark_read" target="_blank">{{ item.title | truncate_text(55) }}</a></div>
 
 			<div class="h-24">
 				<p class="text-xs text-grey-darker">
@@ -37,6 +37,16 @@ export default {
 	data () {
 		return {
 
+			is_read: false
+		}
+	},
+
+	methods: {
+
+		mark_read() {
+
+			this.is_read = true
+			this.$emit('read', true)
 		}
 	},
 

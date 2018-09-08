@@ -2,7 +2,9 @@
 	<div class="w-25r p-3 m-4 border-grey-light border-2 rounded-lg bg-white shadow">
 		<h2 class="uppercase text-base text-center tracking-wide border-b-2 pb-2 border-grey-light">{{ this.source.name }}</h2>
 
-		<news-item v-for="item in items" :key="item.id" :item="item" />
+		<p v-show="items_read > 0" class="mt-3"><span class="font-bold">{{ items_read }}</span> read. </p>
+
+		<news-item v-for="item in items" :key="item.id" :item="item" @read="mark_item" />
 
 	</div>
 </template>
@@ -29,9 +31,22 @@ export default {
 	data () {
 		return {
 
-			'items': []
+			'items': [],
+			'items_read': 0
 
 		}
+	},
+
+	methods: {
+
+		mark_item(is_read) {
+
+			if(is_read == true)
+
+				this.items_read++
+
+		}
+
 	},
 
 	created() {
