@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.21.2",
     "lodash": "^4.17.21",
-    "moment": "^2.29.2",
+    "moment": "^2.29.4",
     "vue": "^2.5.17"
   },
   "devDependencies": {
